@@ -5,7 +5,7 @@ WORKDIR /root
 
 SHELL [ "/bin/bash", "-c" ]
 
-ARG PYTHON_VERSION_TAG=3.8.7
+ARG PYTHON_VERSION_TAG=3.8.8
 ARG LINK_PYTHON_TO_PYTHON3=1
 
 # Existing lsb_release causes issues with modern installations of Python3
@@ -14,7 +14,6 @@ ARG LINK_PYTHON_TO_PYTHON3=1
 RUN apt-get -qq -y update && \
     DEBIAN_FRONTEND=noninteractive apt-get -qq -y install \
         gcc \
-        g++ \
         zlibc \
         zlib1g-dev \
         libssl-dev \
@@ -27,14 +26,12 @@ RUN apt-get -qq -y update && \
         libreadline-dev \
         uuid-dev \
         libffi-dev \
-        tk-dev \
         wget \
         curl \
         git \
         make \
         sudo \
         bash-completion \
-        tree \
         vim \
         software-properties-common && \
     mv /usr/bin/lsb_release /usr/bin/lsb_release.bak && \
